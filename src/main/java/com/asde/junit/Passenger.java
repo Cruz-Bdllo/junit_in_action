@@ -3,6 +3,9 @@ package com.asde.junit;
 import java.util.Arrays;
 import java.util.Locale;
 
+/**
+ * Documentación
+ */
 public class Passenger {
 
     private String identifier;

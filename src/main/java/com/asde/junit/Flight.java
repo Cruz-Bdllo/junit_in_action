@@ -5,6 +5,9 @@ import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/**
+ * Documentación
+ */
 public class Flight {
     private String flightNumber;
     private int seats;
