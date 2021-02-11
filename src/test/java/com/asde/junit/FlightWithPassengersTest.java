@@ -13,8 +13,10 @@ public class FlightWithPassengersTest {
     void testAddRemovePassenger() throws IOException {
         Passenger passenger = new Passenger("12-34-56", "John Smith",
                 "US");
-        assertTrue(flight.addPassenger(passenger));
+
+        flight.addPassenger(passenger);
         assertEquals(1, flight.getPassengersSize());
+        assertEquals(flight, passenger.getFlight());
 
         assertTrue(flight.removePassenger(passenger));
         assertEquals(0, flight.getPassengersSize());

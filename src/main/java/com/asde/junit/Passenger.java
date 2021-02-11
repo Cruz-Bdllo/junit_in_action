@@ -8,6 +8,7 @@ public class Passenger {
     private String identifier;
     private String name;
     private String countryCode;
+    private Flight flight;
 
     public Passenger(String identifier, String name, String countryCode) {
         if (!Arrays.asList(Locale.getISOCountries()).contains(countryCode)){
@@ -40,6 +41,29 @@ public class Passenger {
 
     public void setCountryCode(String countryCode) {
         this.countryCode = countryCode;
+    }
+
+    public Flight getFlight() {
+        return flight;
+    }
+
+    public void setFlight(Flight flight) {
+        this.flight = flight;
+    }
+
+    public void joinsFlight(Flight flight) {
+        Flight flightPrevious = this.flight;
+        if(null != flightPrevious) {
+            if(!flight.removePassenger(this)) {
+                throw new RuntimeException("Cannot remove passenger");
+            }
+        }
+        setFlight(flight);
+        if (null != flight) {
+            if (!flight.addPassenger(this)) {
+                throw new RuntimeException("Cannot add passenger");
+            }
+        }
     }
 
     @Override

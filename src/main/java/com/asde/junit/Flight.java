@@ -26,6 +26,7 @@ public class Flight {
             throw new RuntimeException("Not enough seats for flight "
                     + getFlightNumber());
         }
+        passenger.setFlight(this);
         return passengers.add(passenger);
     }
 
